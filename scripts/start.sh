@@ -69,5 +69,8 @@ fi
 # Always chown webroot for better mounting
 chown -Rf nginx.nginx /var/www/html
 
+# Set node environment
+export NODE_ENV=production
+
 # Start supervisord and services
 /usr/bin/supervisord -n -c /etc/supervisord.conf
