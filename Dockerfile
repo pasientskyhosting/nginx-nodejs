@@ -62,8 +62,13 @@ RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/defau
 ADD scripts/start.sh /start.sh
 RUN chmod 755 /start.sh
 
+# Switch user
+USER nginx
+
 # copy in code
 ADD errors /var/www/errors/
+
+USER root
 
 EXPOSE 80
 
