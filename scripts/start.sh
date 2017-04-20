@@ -67,7 +67,7 @@ if [ -d "/adaptions" ]; then
 fi
 
 # Always chown webroot for better mounting
-chown -Rf nginx.nginx /var/www/html
+#chown -Rf nginx.nginx /var/www/html
 
 # Set node environment
 export NODE_ENV=production
