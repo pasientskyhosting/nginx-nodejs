@@ -8,6 +8,12 @@ ENV VERSION=v6.10.2 NPM_VERSION=3
 # For base builds
 ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libstdc++" RM_DIRS=/usr/include
 
+#Set Timezonedata
+RUN apk update && apk add tzdata \
+  && cp /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime \
+  && echo "Europe/Copenhagen" >  /etc/timezone \
+  && apk del tzdata
+
 RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ && \
   gpg --keyserver ha.pool.sks-keyservers.net --recv-keys \
     94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
