@@ -12,9 +12,6 @@ if [ -d "/adaptions" ]; then
     for i in `ls /adaptions/`; do /adaptions/$i || exit 1; done
 fi
 
-# Always chown webroot for better mounting
-#chown -Rf nginx.nginx /var/www/html
-
 # Set node environment
 export NODE_ENV=production
 
