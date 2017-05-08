@@ -2,8 +2,8 @@ FROM node:7.10-alpine
 MAINTAINER Andreas Krüger <ak@patientsky.com>
 
 RUN apk add --no-cache bash \
-    supervisor \
-    nginx && \
+    supervisor=3.2.0-r0 \
+    nginx=1.10.1-r1 && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /var/log/supervisor && \
     mkdir -p /etc/nginx/sites-enabled/ && \
