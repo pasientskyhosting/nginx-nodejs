@@ -1,9 +1,0 @@
-{
-  "name": "node-server-example",
-  "description": "Hello World App",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "4.x"
-  }
-}
