@@ -3,7 +3,7 @@ MAINTAINER Andreas Krüger <ak@patientsky.com>
 
 RUN apk add --no-cache bash \
     supervisor=3.2.0-r0 \
-    tzdata=016i-r0 \
+    tzdata \
     nginx=1.10.1-r1 && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /var/log/supervisor && \
