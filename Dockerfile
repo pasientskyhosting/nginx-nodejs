@@ -1,10 +1,10 @@
-FROM node:7.10-alpine
+FROM node:11.12.0-alpine
 MAINTAINER Andreas Krüger <ak@patientsky.com>
 
 RUN apk add --no-cache bash \
-    supervisor=3.2.0-r0 \
-    tzdata=2016d-r0 \
-    nginx=1.10.1-r1 && \
+    supervisor \
+    tzdata \
+    nginx && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /var/log/supervisor && \
     mkdir -p /etc/nginx/sites-enabled/ && \
