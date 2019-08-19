@@ -1,9 +1,22 @@
-FROM node:11.12.0-alpine
-MAINTAINER Andreas Krüger <ak@patientsky.com>
+FROM node:12-slim
 
-RUN apk add --no-cache bash \
-    supervisor \
-    tzdata \
+LABEL maintainer "Andreas Krüger <ak@patientsky.com>"
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y -q --install-recommends --no-install-suggests \
+      curl \
+      supervisor \
+      tzdata \
+      git \
+      ca-certificates \
+      net-tools \
+    && curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add - \
+    && curl -fsSL https://download.newrelic.com/548C16BF.gpg | apt-key add - \
+    && echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" > /etc/apt/sources.list.d/nginx.list \
+    && echo "deb-src http://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list.d/nginx.list \
+    && apt-get update \
+    && apt-get install -y -q --install-recommends --no-install-suggests \
     nginx && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /var/log/supervisor && \
