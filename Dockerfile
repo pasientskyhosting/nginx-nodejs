@@ -12,6 +12,7 @@ RUN apt-get update && \
       ca-certificates \
       net-tools \
       libjemalloc-dev \
+      gnupg2 \
     && curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add - \
     && curl -fsSL https://download.newrelic.com/548C16BF.gpg | apt-key add - \
     && echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" > /etc/apt/sources.list.d/nginx.list \
